@@ -16,3 +16,6 @@ class pelicula(models.Model):
     start_date = fields.Datetime()
     end_date = fields.Datetime(compute="_get_end_date", store=True)
     is_spanish = fields.Boolean(string="Española")
+
+    # Relaciones:
+    genero_id = fields.Many2one("filmotecachicote.genero", string="Género", required=True, ondelete="cascade")

@@ -9,6 +9,7 @@
           <field name="name"/>
           <field name="film_date"/>
           <field name="description"/>
+          <field name="genero_id"/>
         </tree>
       </field>
     </record>
@@ -24,6 +25,7 @@
               <field name="name"/>
               <field name="film_date"/>
               <field name="description"/>
+              <field name="genero_id"/>
             </group>
           </sheet>
         </form>

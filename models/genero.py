@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from tokenize import String
-
 from odoo import models, fields
 
 

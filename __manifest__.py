@@ -29,6 +29,7 @@
         'views/templates.xml',
         'views/pelicula.xml',
         'views/genero.xml',
+        'views/tecnica.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

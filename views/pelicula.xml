@@ -27,6 +27,7 @@
                                 <field name="film_date"/>
                                 <field name="description"/>
                                 <field name="genero_id"/>
+                                <field name="tecnicas_id"/>
                             </group>
 
                             <group name="group_right">

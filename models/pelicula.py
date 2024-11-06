@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from email.policy import default
-
 from odoo import models, fields
 
 
@@ -43,3 +41,4 @@ class pelicula(models.Model):
 
     # Relaciones:
     genero_id = fields.Many2one("filmotecachicote.genero", string="Género", required=True, ondelete="cascade")
+    tecnicas_id = fields.Many2many("filmotecachicote.tecnica", string="Técnica", ondelete="cascade")

@@ -10,6 +10,8 @@
                     <field name="film_date"/>
                     <field name="description"/>
                     <field name="genero_id"/>
+                    <button name="f_create" string="Crear" class="oe_highlight" type="object"/>
+                    <button name="f_delete" string="Eliminar" class="oe_highlight" type="object"/>
                 </tree>
             </field>
         </record>
@@ -21,6 +23,10 @@
             <field name="arch" type="xml">
                 <form string="formulario_pelicula">
                     <sheet>
+                        <div class="oe_button:box" name="button_box">
+                            <button name="toggle_color" type="object" class="oe_stat_button"
+                                    string="Color película" icon="fa-paint-brush"/>
+                        </div>
                         <group name="group_top">
                             <group name="group_left">
                                 <field name="code"/>
@@ -36,6 +42,12 @@
                                 <field name="language"/>
                                 <field name="opinion"/>
                                 <field name="color"/>
+                            </group>
+                        </group>
+
+                        <group name="group_bottom">
+                            <group name="group_left">
+                                <button name="f_create" string="Crear" class="oe_highlight" type="object"/>
                             </group>
                         </group>
                     </sheet>
@@ -73,6 +85,29 @@
                         </t>
                     </templates>
                 </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="vista_filmotecachicote_pelicula_search">
+            <field name="name">vista_filmotecachicote_pelicula_search</field>
+            <field name="model">filmotecachicote.pelicula</field>
+            <field name="arch" type="xml">
+                <search string="Filtrar películas">
+                    <field name="name"/>
+                    <field name="language"/>
+                    <field name="film_date"/>
+                    <field name="color"/>
+                    <group expand="0" string="Group By">
+                        <filter name="groupby_language" string="Español" domain="[('language','=','es')]"
+                                context="{'group_by':'language'}"
+                                help="Agrupar por películas en español"/>
+                        <filter name="groupby_film_date" string="Fecha"
+                                context="{'group_by':'film_date'}"
+                                help="Agrupar por fecha"/>
+                    </group>
+                    <filter name="filter_by_color" string="Color" domain="[('color','=','True')]"
+                            help="Películas en color"/>
+                </search>
             </field>
         </record>
 

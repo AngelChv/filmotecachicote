@@ -49,10 +49,24 @@ class pelicula(models.Model):
 
 
     # Métodos:
+    def f_create(self):
+        p = {
+            "name": "Prueba ORM",
+            "color": True,
+            "genero_id": 1,
+        }
+        self.env["filmotecachicote.pelicula"].create(p)
     # self en este caso no se refiere a sí mismo (una película) sino a toda la lista de películas.
+
     def _get_code(self):
-        for pelicula in self:
-            if len(pelicula.genero_id) == 0:
-                pelicula.code = f"FILM_{pelicula.id}"
+        for p in self:
+            if len(p.genero_id) == 0:
+                p.code = f"FILM_{p.id}"
             else:
-                pelicula.code = f"{pelicula.genero_id.name.upper()}_{pelicula.id}"
+                p.code = f"{p.genero_id.name.upper()}_{p.id}"
+
+    def toggle_color(self):
+        self.color = not self.color
+
+    def f_delete(self):
+        self.unlink()
